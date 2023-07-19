@@ -1,0 +1,31 @@
+header {
+    height: 80px;
+    width: 100%;
+    background: #e5e5e5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+
+    img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .search_container {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        position: absolute;
+
+        .mat-mdc-form-field {
+            width: 80%;
+        }
+    }
+
+    .logout-btn{
+        display: block;
+    }
+}

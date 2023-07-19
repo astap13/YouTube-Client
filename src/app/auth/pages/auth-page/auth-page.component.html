@@ -1,0 +1,27 @@
+<form class="form" [formGroup]="form!" (ngSubmit)="submit()">
+  <div *ngIf="form?.get('email')?.invalid && form?.get('email')?.touched" class="email-validation">
+    <small>The login email is invalid</small>
+  </div>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>The login email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+      placeholder="Please enter a login email"
+    />
+  </mat-form-field>
+  <small *ngIf="form?.get('password')?.errors?.['passwordStrength'] && form?.get('password')?.touched">
+    {{ form?.get('password')?.errors?.['passwordStrength']?.message }}
+  </small>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      formControlName="password"
+      placeholder="Please enter a password"
+      type="password"
+    />
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary" [disabled]="form?.invalid">Submit</button>
+  <span *ngIf="show"> <button mat-button color="accent">Login success !!</button></span>
+</form>

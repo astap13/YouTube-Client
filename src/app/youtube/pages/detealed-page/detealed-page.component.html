@@ -1,0 +1,17 @@
+<div class="detealed-container">
+  <a routerLink="/youtube" mat-mini-fab color="primary" aria-label="">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </a>
+  <img src="{{video?.snippet?.thumbnails?.high?.url}}" alt="" />
+  <div appBorderColor [attr.data-date]="video?.snippet?.publishedAt" class="description-container">
+    <p class="item_title">{{ video?.snippet?.title }}</p>
+    <p class="item_date">{{video?.snippet?.publishedAt | date}}</p>
+    <p class="item_description">{{video?.snippet?.description}}</p>
+    <section class="tools_container">
+      <button type="button" mat-button><mat-icon>visibility</mat-icon>{{ video?.statistics?.viewCount }}</button>
+      <button type="button" mat-button><mat-icon>favorite</mat-icon>{{ video?.statistics?.favoriteCount }}</button>
+      <button type="button" mat-button><mat-icon>thumb_down</mat-icon>{{ video?.statistics?.dislikeCount }}</button>
+      <button type="button" mat-button><mat-icon>comment</mat-icon>{{ video?.statistics?.commentCount }}</button>
+    </section>
+  </div>
+</div>

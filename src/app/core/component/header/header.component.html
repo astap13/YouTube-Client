@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="search_container">
+    <img src="../../assets/img/logo.svg" alt="" />
+    <mat-form-field subscriptSizing="dynamic" appearance="fill">
+      <mat-label>Search Something</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Type something.."
+        name="search"
+        [(ngModel)]="value"
+        (ngModelChange)="onValueChange($event)"
+        (focus)="onSearch()"
+      />
+    </mat-form-field>
+    <button
+      (click)="showSortService.toggleSort()"
+      type="button"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+    >
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <button
+      class="logout-btn"
+      mat-mini-fab
+      color="primary"
+      (click)="admin()"
+      aria-label="Example icon button with a menu icon"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-raised-button color="accent"
+      *ngIf="loginService.isAuthenticated() | async; else loggedOut"
+      (click)="loginService.logout()"
+    >
+      Logout
+    </button>
+    <ng-template  #loggedOut>
+      <button mat-raised-button color="primary" (click)="toAuth()">Login</button>
+    </ng-template>
+  </div>
+  <app-header-account></app-header-account>
+</header>
+<app-sort *ngIf="showSortService.showSort"></app-sort>

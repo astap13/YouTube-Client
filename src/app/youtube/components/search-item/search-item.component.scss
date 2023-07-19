@@ -1,0 +1,27 @@
+.item_container {
+    width: 326px;
+    height: 400px;
+    background: #e5e5e5;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    
+    img {
+        width: 223px;
+        height: 123px;
+        margin-top: 10px;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    p {
+        font-size: 20px;
+    }
+    
+    .more_btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

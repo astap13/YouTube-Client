@@ -1,0 +1,53 @@
+<form class="form" [formGroup]="adminForm!" (ngSubmit)="submit()">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" placeholder="Please enter a title" />
+    <small *ngIf="adminForm?.get('title')?.errors?.['minlength'] && adminForm?.get('title')?.touched">
+      {{ adminForm?.get('title')?.errors?.['minlength']?.message }} </small><small
+      *ngIf="adminForm?.get('title')?.errors?.['maxlength'] && adminForm?.get('title')?.touched">
+      {{ adminForm?.get('title')?.errors?.['maxlength']?.message }}
+    </small>
+
+    <small *ngIf="adminForm?.get('title')?.errors?.['required'] && adminForm?.get('title')?.touched">
+      {{ adminForm?.get('title')?.errors?.['required']?.message }}
+    </small></mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" placeholder="Optional" />
+    <small *ngIf="adminForm?.get('description')?.errors?.['maxlength'] && adminForm?.get('description')?.touched">
+      {{ adminForm?.get('description')?.errors?.['maxlength']?.message }}
+    </small></mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Link to the image cover</mat-label>
+    <input matInput formControlName="linkImage" placeholder="Please enter a link to the image" /><small
+      *ngIf="adminForm?.get('linkImage')?.errors?.['url'] && adminForm?.get('linkImage')?.touched">
+      {{ adminForm?.get('linkImage')?.errors?.['url']?.message }}
+    </small>
+    <small *ngIf="adminForm?.get('linkImage')?.errors?.['required'] && adminForm?.get('linkImage')?.touched">
+      {{ adminForm?.get('linkImage')?.errors?.['required']?.message }}
+    </small>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Link to the video</mat-label>
+    <input matInput formControlName="linkVideo" placeholder="Please enter a link to the video" /><small
+      *ngIf="adminForm?.get('linkVideo')?.errors?.['url'] && adminForm?.get('linkVideo')?.touched">
+      {{ adminForm?.get('linkVideo')?.errors?.['url']?.message }}
+    </small>
+    <small *ngIf="adminForm?.get('linkVideo')?.errors?.['required'] && adminForm?.get('linkVideo')?.touched">
+      {{ adminForm?.get('linkVideo')?.errors?.['required']?.message }}
+    </small>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Creation date</mat-label>
+    <input type="date" matInput formControlName="date" placeholder="Please enter a creation date" />
+    <small *ngIf="adminForm?.get('date')?.errors?.['date'] && adminForm?.get('date')?.touched">
+      {{ adminForm?.get('date')?.errors?.['date']?.message }}
+    </small></mat-form-field>
+  <button [disabled]="adminForm?.invalid" type="submit" mat-raised-button color="primary">
+    Create card
+  </button>
+</form>
